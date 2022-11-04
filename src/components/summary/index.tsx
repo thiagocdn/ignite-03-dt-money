@@ -6,7 +6,24 @@ import { TransactionContext } from '../../contexts/transaction-context'
 export function Summary() {
   const { transactions } = useContext(TransactionContext)
 
-  console.log('transaction', transactions)
+  const summary = transactions.reduce(
+    (previousObject, currentTransaction) => {
+      if (currentTransaction.type === 'income')
+        previousObject.income += currentTransaction.price
+
+      if (currentTransaction.type === 'outcome')
+        previousObject.outcome += currentTransaction.price
+
+      previousObject.total = previousObject.income - previousObject.outcome
+
+      return previousObject
+    },
+    {
+      income: 0,
+      outcome: 0,
+      total: 0,
+    },
+  )
 
   return (
     <SummaryContainer>
@@ -15,7 +32,7 @@ export function Summary() {
           <span>Entradas</span>
           <ArrowCircleUp size={32} color="#00b37e" />
         </header>
-        <strong>R$ 17.000,00</strong>
+        <strong>R$ {summary.income}</strong>
       </SummaryCard>
 
       <SummaryCard>
@@ -23,7 +40,7 @@ export function Summary() {
           <span>Saídas</span>
           <ArrowCircleDown size={32} color="#f75a68" />
         </header>
-        <strong>R$ 17.000,00</strong>
+        <strong>R$ {summary.outcome}</strong>
       </SummaryCard>
 
       <SummaryCard variant="green">
@@ -31,7 +48,7 @@ export function Summary() {
           <span>Total</span>
           <CurrencyDollar size={32} color="#FFFFFF" />
         </header>
-        <strong>R$ 17.000,00</strong>
+        <strong>R$ {summary.total}</strong>
       </SummaryCard>
     </SummaryContainer>
   )
