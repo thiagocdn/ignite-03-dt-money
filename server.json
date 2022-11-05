@@ -1,20 +1,36 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de site",
-            "type": "income",
-            "category": "Venda",
-            "price": 14000,
-            "created_at": "2022-11-04T15:57:56.846Z"
-        },
-        {
-            "id": 2,
-            "description": "Hamburger",
-            "type": "outcome",
-            "category": "Alimentação",
-            "price": 60,
-            "created_at": "2022-11-04T10:57:56.846Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "created_at": "2022-11-03T15:57:56.846Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburger",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 60,
+      "created_at": "2022-11-02T10:57:56.846Z"
+    },
+    {
+      "description": "Teste",
+      "price": 100,
+      "category": "Teste",
+      "type": "outcome",
+      "created_at": "2022-11-04T23:58:25.348Z",
+      "id": 3
+    },
+    {
+      "description": "Pizzinha",
+      "price": 80,
+      "category": "Comida",
+      "type": "outcome",
+      "created_at": "2022-11-05T00:07:53.205Z",
+      "id": 4
+    }
+  ]
 }
